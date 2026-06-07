@@ -52,7 +52,7 @@ def get_llm(model='gpt-4o'):
 
 def get_retriever():
     embedding = OpenAIEmbeddings(model='text-embedding-3-large')
-    index_name= 'tax-markdown-index'
+    index_name= 'coperation-tax'
     database = PineconeVectorStore.from_existing_index(
         index_name=index_name,
         embedding=embedding
@@ -92,10 +92,10 @@ def get_rag_cahin():
 
 
     qa_system_prompt = (
-        "당신은 소득세법 전문가입니다. 사용자의 소득세법에 관한 질문에 답변해주세요"
+        "당신은 법인세법 전문가입니다. 사용자의 법인세법에 관한 질문에 답변해주세요"
         "아래에 제공된 문서를 활용해서 답변해주시고"
         "답변을 알 수 없다면 모른다고 답변해주세요"
-        "답변을 제공할 때는 소득세법 (XX조)에 따르면 이라고 시작하면서 답변해주시고"
+        "답변을 제공할 때는 법인세법 (XX조)에 따르면 이라고 시작하면서 답변해주시고"
         "2-3 문장정도의 짧은 내용의 답변을 원합니다"
         "\n\n"
         "{context}"
